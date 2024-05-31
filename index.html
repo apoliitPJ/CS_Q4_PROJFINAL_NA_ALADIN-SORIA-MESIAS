@@ -35,7 +35,7 @@
                 <p>Lost password <a href="#">Click Here!</a></p>
             </div>
             <div class="btn-field">
-                <button type="button" id="signupBtn" onclick="storeFormData()"><a href="webpage.html">Sign up</a></button>
+                <button type="button" id="signupBtn" onclick="data()"><a href="webpage.html">Sign up</a></button>
             </div>
         </form>
     </div>
@@ -45,7 +45,7 @@
 let nameField = document.getElementById("nameField");
 let title = document.getElementById("title");
 
-function storeFormData() {
+function data() {
     var formData = {
         firstName: document.getElementById('first-name').value,
         lastName: document.getElementById('last-name').value,
