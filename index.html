@@ -5,7 +5,12 @@
     <title>Sign Up Form - Easy Tutorials</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
-
+    <style>
+        .username-display {
+            display: none; /* Initially hide the username display */
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -35,26 +40,45 @@
                 <p>Lost password <a href="#">Click Here!</a></p>
             </div>
             <div class="btn-field">
-                <button type="button" id="signupBtn" onclick="data()"><a href="webpage.html">Sign up</a></button>
+                <button type="button" id="signupBtn">Sign up</button>
             </div>
         </form>
     </div>
 </div>
+<!-- Display username here -->
+<div class="username-display" id="usernameDisplay"></div>
 
 <script>
 let nameField = document.getElementById("nameField");
 let title = document.getElementById("title");
+let usernameDisplay = document.getElementById("usernameDisplay");
+let signupBtn = document.getElementById("signupBtn");
 
-function data() {
+signupBtn.addEventListener("click", function() {
+    var firstName = document.getElementById('first-name').value;
+    var lastName = document.getElementById('last-name').value;
+
+    // Combine first name and last name to form username
+    var username = firstName + " " + lastName;
+
+    // Display username
+    usernameDisplay.textContent = "Username: " + username;
+    usernameDisplay.style.display = "block"; // Make the username display visible
+
+    // Store form data if needed
     var formData = {
-        firstName: document.getElementById('first-name').value,
-        lastName: document.getElementById('last-name').value,
+        firstName: firstName,
+        lastName: lastName,
         email: document.getElementById('email').value,
         password: document.getElementById('password').value
     };
     
     localStorage.setItem('formData', JSON.stringify(formData));
-}
+    localStorage.setItem('username', username); // Save the username to local storage
+
+    // Redirect to another page
+    window.location.replace("webpage.html");
+});
 
 signupBtn.onclick = function(){
     nameField.style.maxHeight = "60px";

@@ -25,5 +25,20 @@
             <p><b>OUR GROUP BELIEVES...</b></p>
             <h1><b>Everyone Has the Right to <u>Quality Education!</u></b></h1>
         </div>
+    </div>
+
+    <!-- Display username here -->
+    <div class="username-display" id="usernameDisplay"></div>
+
+    <script>
+    // Retrieve username from local storage
+    var username = localStorage.getItem('username');
+    if (username) {
+        // Display username
+        var usernameDisplay = document.getElementById("usernameDisplay");
+        usernameDisplay.textContent = " asudhasjdhas Welcome, User:" + username;
+        usernameDisplay.style.display = "block"; // Make the username display visible
+    }
+    </script>
 </body>
 </html>
